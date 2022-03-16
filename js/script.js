@@ -27,8 +27,21 @@
     tasksElement.innerHTML = htmlString
   }
 
+  const addNewTask = () => {
+    const newTaskElement = document.querySelector(".js-new-task")
+    const newTaskContent = newTaskElement.value.trim()
+
+    DUMMY_TASKS.push({
+      content: newTaskContent, done: false
+    })
+
+    render()
+  }
+
   const onFormSubmit = event => {
     event.preventDefault()
+
+    addNewTask()
   }
 
   const init = () => {
