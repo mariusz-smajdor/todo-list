@@ -2,10 +2,12 @@
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 8px #ccc;
+  margin-bottom: 20px;
 }
 
 .section__header {
   padding: 20px;
+  margin: 0;
   border-bottom: 2px solid #eee;
 }
 
