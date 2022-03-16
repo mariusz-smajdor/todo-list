@@ -1,19 +1,10 @@
 {
-  const DUMMY_TASKS = [
-    {
-      content: "test task 1",
-      done: false
-    },
-    {
-      content: "test task 2",
-      done: true
-    }
-  ]
+  const tasks = []
 
   const render = () => {
     let htmlString = ""
 
-    for (const task of DUMMY_TASKS) {
+    for (const task of tasks) {
       htmlString += `
           <li class="tasks__item">
             <button class="tasks__button js-toggle">${task.done ? "✖" : "✔"}</button>
@@ -47,13 +38,13 @@
   }
 
   const toggleDoneTask = (index) => {
-    DUMMY_TASKS[index].done = !DUMMY_TASKS[index].done
+    tasks[index].done = !tasks[index].done
 
     render()
   }
 
   const removeTask = (index) => {
-    DUMMY_TASKS.splice(index, 1)
+    tasks.splice(index, 1)
 
     render()
   }
@@ -62,7 +53,7 @@
     const newTaskElement = document.querySelector(".js-new-task")
     const newTaskContent = newTaskElement.value.trim()
 
-    DUMMY_TASKS.push({
+    tasks.push({
       content: newTaskContent, done: false
     })
 
@@ -76,8 +67,6 @@
   }
 
   const init = () => {
-    render()
-
     const formElement = document.querySelector(".js-form")
 
     formElement.addEventListener("submit", onFormSubmit)
