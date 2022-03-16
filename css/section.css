@@ -1,0 +1,14 @@
+.section {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #ccc;
+}
+
+.section__header {
+  padding: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+.section__body {
+  padding: 20px;
+}
