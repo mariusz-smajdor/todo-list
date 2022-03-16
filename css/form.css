@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 667px) {
+  .form {
+    flex-direction: column;
+  }
+}
+
+.form__field {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form__button {
+  border: unset;
+  border-radius: 10px;
+  padding: 10px;
+  background: maroon;
+  color: white;
+}
