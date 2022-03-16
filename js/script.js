@@ -53,9 +53,18 @@
     const newTaskElement = document.querySelector(".js-new-task")
     const newTaskContent = newTaskElement.value.trim()
 
+    if (newTaskContent === "") {
+      newTaskElement.focus()
+
+      return
+    }
+
     tasks.push({
       content: newTaskContent, done: false
     })
+
+    newTaskElement.value = ""
+    newTaskElement.focus()
 
     render()
   }
@@ -70,6 +79,8 @@
     const formElement = document.querySelector(".js-form")
 
     formElement.addEventListener("submit", onFormSubmit)
+
+
   }
 
   init()
