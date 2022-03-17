@@ -2,20 +2,24 @@
   let tasks = []
 
   const render = () => {
-    let htmlString = ""
-
-    for (const task of tasks) {
-      htmlString += `
+    const htmlTaskElements = tasks.map(task => {
+      return `
           <li class="tasks__item">
-            <button class="tasks__button js-toggle">${task.done ? "✖" : "✔"}</button>
-            <span class="${task.done ? "tasks__text--done" : ""}">${task.content}</span>
-            <button class="tasks__button tasks__button--remove js-remove">🗑️</button>
+            <button class="tasks__button js-toggle">
+              ${task.done ? "✖" : "✔"}
+            </button>
+            <span class="${task.done ? "tasks__text--done" : ""}">
+              ${task.content}
+            </span>
+            <button class="tasks__button tasks__button--remove js-remove">
+              🗑️
+            </button>
           </li>
       `
-    }
+    }).join("")
 
     const tasksElement = document.querySelector(".js-tasks")
-    tasksElement.innerHTML = htmlString
+    tasksElement.innerHTML = htmlTaskElements
 
     bindEvents()
   }
