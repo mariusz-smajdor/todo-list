@@ -6,9 +6,28 @@
 }
 
 .section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+}
+
+@media (max-width: 667px) {
+  .section__header {
+    flex-direction: column;
+    align-items: unset;
+  }
+}
+
+.section__title {
   padding: 20px;
   margin: 0;
-  border-bottom: 2px solid #eee;
+}
+
+@media (max-width: 667px) {
+  .section__title {
+    padding-bottom: 0;
+  }
 }
 
 .section__body {

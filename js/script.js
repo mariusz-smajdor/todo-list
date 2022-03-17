@@ -20,19 +20,77 @@
 
     const tasksElement = document.querySelector(".js-tasks")
     tasksElement.innerHTML = htmlTaskElements
-
-    bindEvents()
   }
 
-  const bindEvents = () => {
+  const renderTaskButtons = () => {
+    const buttonsElement = document.querySelector('.js-buttons')
+
+    if (!tasks.length) {
+      buttonsElement.innerHTML = ""
+      return
+    }
+
+    const htmlTaskButtonsElements = `
+      <button class="buttons__button">
+        Ukryj ukończone
+      </button>
+      <button class="buttons__button">
+        Ukończ wszystkie
+      </button>
+    `
+
+    buttonsElement.innerHTML = htmlTaskButtonsElements
+  }
+
+
+  const render = () => {
+    renderTasks()
+    renderTaskButtons()
+
+    bindRemoveEvents()
+    bindToggleEvents()
+  }
+
+  const toggleDoneTask = (index) => {
+    tasks = [
+      ...tasks.slice(0, index),
+      { ...tasks[index], done: !tasks[index].done },
+      ...tasks.slice(index + 1)
+    ]
+
+    render()
+  }
+
+  const removeTask = (index) => {
+    tasks = [
+      ...tasks.slice(0, index),
+      ...tasks.slice(index + 1)
+    ]
+
+    render()
+  }
+
+  const addNewTask = (taskContent) => {
+    tasks = [
+      ...tasks,
+      { content: taskContent, done: false }
+    ]
+
+    render()
+  }
+
+  const bindRemoveEvents = () => {
     const removeElement = document.querySelectorAll(".js-remove")
-    const toggleDoneElement = document.querySelectorAll(".js-toggle")
 
     removeElement.forEach((button, index) => {
       button.addEventListener("click", () => {
         removeTask(index)
       })
     })
+  }
+
+  const bindToggleEvents = () => {
+    const toggleDoneElement = document.querySelectorAll(".js-toggle")
 
     toggleDoneElement.forEach((button, index) => {
       button.addEventListener("click", () => {
@@ -59,33 +117,6 @@
     afterFormSubmission()
   }
 
-  const toggleDoneTask = (index) => {
-    tasks = [
-      ...tasks.slice(0, index),
-      { ...tasks[index], done: !tasks[index].done },
-      ...tasks.slice(index + 1)
-    ]
-
-    renderTasks()
-  }
-
-  const removeTask = (index) => {
-    tasks = [
-      ...tasks.slice(0, index),
-      ...tasks.slice(index + 1)
-    ]
-
-    renderTasks()
-  }
-
-  const addNewTask = (taskContent) => {
-    tasks = [
-      ...tasks,
-      { content: taskContent, done: false }
-    ]
-
-    renderTasks()
-  }
 
   const onFormSubmit = event => {
     event.preventDefault()
@@ -97,8 +128,6 @@
     const formElement = document.querySelector(".js-form")
 
     formElement.addEventListener("submit", onFormSubmit)
-
-
   }
 
   init()
