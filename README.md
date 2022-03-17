@@ -5,3 +5,8 @@
 ## Demo
 
 https://mariusz-smajdor.github.io/todo-list/
+
+## Conventions
+
+- BEM
+- Immutability
