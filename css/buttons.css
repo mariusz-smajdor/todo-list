@@ -6,6 +6,7 @@
 
 @media (max-width: 667px) {
   .buttons {
+    padding-top: 0;
     flex-direction: column;
   }
 }

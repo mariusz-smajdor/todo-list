@@ -24,12 +24,6 @@
   margin: 0;
 }
 
-@media (max-width: 667px) {
-  .section__title {
-    padding-bottom: 0;
-  }
-}
-
 .section__body {
   padding: 20px;
 }
