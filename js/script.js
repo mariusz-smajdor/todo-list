@@ -1,7 +1,7 @@
 {
   let tasks = []
 
-  const render = () => {
+  const renderTasks = () => {
     const htmlTaskElements = tasks.map(task => {
       return `
           <li class="tasks__item">
@@ -66,7 +66,7 @@
       ...tasks.slice(index + 1)
     ]
 
-    render()
+    renderTasks()
   }
 
   const removeTask = (index) => {
@@ -75,7 +75,7 @@
       ...tasks.slice(index + 1)
     ]
 
-    render()
+    renderTasks()
   }
 
   const addNewTask = (taskContent) => {
@@ -84,7 +84,7 @@
       { content: taskContent, done: false }
     ]
 
-    render()
+    renderTasks()
   }
 
   const onFormSubmit = event => {
