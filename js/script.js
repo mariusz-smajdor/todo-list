@@ -1,5 +1,5 @@
 {
-  const tasks = []
+  let tasks = []
 
   const render = () => {
     let htmlString = ""
@@ -56,21 +56,29 @@
   }
 
   const toggleDoneTask = (index) => {
-    tasks[index].done = !tasks[index].done
+    tasks = [
+      ...tasks.slice(0, index),
+      { ...tasks[index], done: !tasks[index].done },
+      ...tasks.slice(index + 1)
+    ]
 
     render()
   }
 
   const removeTask = (index) => {
-    tasks.splice(index, 1)
+    tasks = [
+      ...tasks.slice(0, index),
+      ...tasks.slice(index + 1)
+    ]
 
     render()
   }
 
   const addNewTask = (taskContent) => {
-    tasks.push({
-      content: taskContent, done: false
-    })
+    tasks = [
+      ...tasks,
+      { content: taskContent, done: false }
+    ]
 
     render()
   }
