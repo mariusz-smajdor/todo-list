@@ -14,6 +14,10 @@
   word-break: break-word;
 }
 
+.task__item--hidden {
+  display: none;
+}
+
 .tasks__button {
   width: 30px;
   height: 30px;

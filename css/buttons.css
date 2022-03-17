@@ -17,3 +17,7 @@
   color: maroon;
   font-weight: bold;
 }
+
+.buttons__button:disabled {
+  color: #ccc;
+}
