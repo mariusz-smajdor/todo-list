@@ -37,6 +37,24 @@
     })
   }
 
+  const bindAddTaskEvent = () => {
+    const newTaskElement = document.querySelector(".js-new-task")
+    const newTaskContent = newTaskElement.value.trim()
+
+    const afterFormSubmission = () => {
+      newTaskElement.value = ""
+      newTaskElement.focus()
+    }
+
+    if (newTaskContent === "") {
+      afterFormSubmission()
+      return
+    }
+
+    addNewTask(newTaskContent)
+    afterFormSubmission()
+  }
+
   const toggleDoneTask = (index) => {
     tasks[index].done = !tasks[index].done
 
@@ -49,22 +67,10 @@
     render()
   }
 
-  const addNewTask = () => {
-    const newTaskElement = document.querySelector(".js-new-task")
-    const newTaskContent = newTaskElement.value.trim()
-
-    if (newTaskContent === "") {
-      newTaskElement.focus()
-
-      return
-    }
-
+  const addNewTask = (taskContent) => {
     tasks.push({
-      content: newTaskContent, done: false
+      content: taskContent, done: false
     })
-
-    newTaskElement.value = ""
-    newTaskElement.focus()
 
     render()
   }
@@ -72,7 +78,7 @@
   const onFormSubmit = event => {
     event.preventDefault()
 
-    addNewTask()
+    bindAddTaskEvent()
   }
 
   const init = () => {
