@@ -22,4 +22,14 @@
   padding: 10px;
   background: maroon;
   color: white;
+  transition: filter 1s;
+}
+
+.form__button:hover {
+  filter: brightness(110%);
+  cursor: pointer;
+}
+
+.form__button:active {
+  filter: brightness(120%);
 }

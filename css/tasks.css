@@ -26,6 +26,16 @@
   padding: 0;
   background: forestgreen;
   color: white;
+  transition: filter 1s;
+}
+
+.tasks__button:hover {
+  filter: brightness(110%);
+  cursor: pointer;
+}
+
+.tasks__button:active {
+  filter: brightness(120%);
 }
 
 .tasks__button--remove {

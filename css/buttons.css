@@ -16,6 +16,16 @@
   background: unset;
   color: maroon;
   font-weight: bold;
+  transition: filter 1s;
+}
+
+.buttons__button:hover {
+  filter: brightness(110%);
+  cursor: pointer;
+}
+
+.buttons__button:active {
+  filter: brightness(120%);
 }
 
 .buttons__button:disabled {
